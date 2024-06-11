@@ -1,10 +1,14 @@
----
 build:
   command: |
+    rm -rf public
     mkdir public
-    cp index.html public/index.html
+    cp home.html public/index.html
     cp style.css public/style.css
+    # Minify CSS (optional)
+    uglifyjs style.css > public/style.min.css
     cp script.js public/script.js
+    # Minify JS (optional)
+    uglifyjs script.js > public/script.min.js
     cp -r assets public/assets
   output: public
 
