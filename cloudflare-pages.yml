@@ -2,7 +2,7 @@ build:
   command: |
     rm -rf public
     mkdir public
-    cp home.html public/index.html
+    cp home.html public/home.html
     cp style.css public/style.css
     # Minify CSS (optional)
     uglifyjs style.css > public/style.min.css
