@@ -1,3 +1,14 @@
+---
 build:
-  command: npm run build
+  command: |
+    mkdir public
+    cp index.html public/index.html
+    cp style.css public/style.css
+    cp script.js public/script.js
+    cp -r assets public/assets
   output: public
+
+deploy:
+  type: static
+  static_site:
+    build_output: public
