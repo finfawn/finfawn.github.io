@@ -1,0 +1,584 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Walter+Turncoat&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+*{
+    margin:0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Lavishly Yours', sans-serif;
+}
+
+/* Header */
+
+header{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(rgb(248, 248, 248) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: height 0.3s ease-in-out;
+    z-index: 5;
+}
+
+header .logo img{
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 230px;
+    height: auto;
+    transition: all 0.5s ease;
+}
+
+header.scrolled {
+    height: 70px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.5);
+  }
+  
+header.scrolled .logo img {
+    width: 120px;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 50px;
+    filter: drop-shadow(8px 8px 4px rgb(255, 255, 255));
+
+}
+
+header ul{
+    margin-top: 30px;
+    margin-right: 80px;
+    position: relative;
+    display: flex;
+}
+
+header ul li{
+    list-style: none;
+    font-weight: 600;
+    font-size: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+header.scrolled ul li{
+  font-size: 28px;
+  
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #444444;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(189, 139, 4);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+header ul li a{
+    display: inline-block;
+    color: #333;
+    margin-left: 60px;
+    text-decoration: none;
+}
+
+header ul li a:hover{
+    color: rgb(189, 139, 4);
+}
+
+/* Hero */
+.hero{
+    height: 100vh;
+    background: url(assets/hero.jpg) no-repeat;
+    background-size: cover;
+    text-align: center;
+    
+}
+
+.hero i{
+  font-size: 35px;
+  color: #fcfcfc;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 2s ease-in-out infinite; 
+  filter: drop-shadow(8px 8px 4px rgb(0, 0, 0));
+}
+
+.hero.scrolled i{
+    visibility: hidden;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Cards */
+
+.cards {
+  display: grid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cards .container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+.cards .container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .cards .container {
+    height: auto; 
+  }
+}
+  
+  .cards .container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.5s ease;
+  }
+  
+  .cards .container:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .3);
+  }
+  
+  .cards .container:hover  .cards .container .title {
+    top: 90px;
+  }
+  
+  .cards .container .button {
+    position: absolute;
+    top: 85%;
+    left: 50%; /* changed from 975px to 50% */
+  transform: translateX(-50%); /* added to center horizontally */
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  
+  .cards .container .button a {
+    padding: 20px 60px;
+    font-family: 'Bad Script';
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border: solid 2px rgb(206, 192, 0);
+    background: rgba(0, 0, 0, 0.562);
+    z-index: 1;
+  }
+  
+.cards .container:hover .button {
+  opacity: 1;
+}
+
+
+/* Products */
+  /* Categories */
+
+.categories .title-t, .events .title-t, .shop .title-t{
+  font-family: 'Lavishly Yours';
+  font-weight: 600;
+  font-size: 90px;
+}
+
+.categories .title, .events .title, .shop .title-t{
+  color: #333;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.categories .title img, .shop .title img{
+    width: 150px;
+    height: auto;
+}
+
+.categories ul {
+  text-decoration: none;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 700px;
+}
+  
+.categories  li a{
+  color: #444444;
+  font-family: 'Walter Turncoat';
+  font-size: 20px;
+  flex-grow: 1;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 300;
+  }
+
+/* Items */
+
+.item {
+  display: grid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.item .container {
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  object-fit: fill;
+  cursor: url('assets/cursor.png'), auto;
+}
+
+.item .container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  cursor: inherit;
+  }
+
+  .item .container img:hover{
+    cursor: url('assets/vertopal.com_buy.cur'), auto;
+  }
+
+@media (max-width: 768px) {
+  .item {
+    grid-template-columns: 1fr;
+  }
+  .item .container {
+    height: auto; 
+  }
+}
+  
+  .item .container .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.7s;
+  }
+  
+  .item .container:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, .3);
+    opacity: 1;
+  }
+  
+  .item .container:hover  .cards .container .title {
+    top: 90px;
+  }
+
+  .item-info {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    z-index: 14;
+    visibility: hidden;
+    transform: all 0.5s ease;
+    font-size: 25px;
+    gap: 90px;
+    width: 90%;
+  }
+
+  .item .container:hover .item-info{
+    visibility: visible;
+  }
+
+  /* Events */
+.events .title img{
+  height: 100px;
+  width: auto;
+}
+
+.col {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.info {
+  margin-top: 5px;
+  flex-basis: 50%; 
+  padding: 20px;
+  font-family: 'Bad Script';
+  text-align: end;
+}
+
+.info h3, p{
+  font-family: 'Bad Script';
+}
+
+.info h3, .text2 h3{
+  font-size: 60px;
+}
+
+.info p{
+  font-size: 29px;
+}
+
+.image {
+  flex-basis: 50%;
+  padding: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+}
+
+.text2{
+  font-family: 'Bad Script';
+  width: 100%;
+  text-align: center;
+  justify-self: center;
+}
+
+.text2 p{
+  font-size: 20px;
+}
+
+  /* Form */
+  form { max-width:420px; margin:50px auto; }
+
+  .feedback-input {
+    color:#CC6666;
+    font-family: 'Bad Script', Arial, sans-serif;
+    font-weight:500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border:2px solid #CC6666;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width:100%;
+    box-sizing: border-box;
+    outline:0;
+  }
+  
+  .feedback-input:focus { border:2px solid #CC4949; }
+  
+  textarea {
+    height: 150px;
+    line-height: 150%;
+    resize:vertical;
+  }
+  
+  [type="submit"] {
+    font-family: 'Bad Script', Arial, Helvetica, sans-serif;
+    width: 100%;
+    background:#CC6666;
+    border-radius:5px;
+    border:0;
+    cursor:pointer;
+    color:white;
+    font-size:24px;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: all 0.3s;
+    margin-top:-4px;
+    font-weight:700;
+  }
+  [type="submit"]:hover { background:#CC4949; }
+
+  /* Shop */
+  .shop{
+    height: 89vh;
+    background: url(assets/shop-bg.jpg);
+  }
+
+  .shop {
+    background-color: #f7f7f7;
+    padding: 40px 0;
+  }
+  
+  .shop .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .shop .container .title{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .contact-info {
+    margin-bottom: 20px;
+    bottom: 50%;
+  }
+  
+  .contact-info p {
+    font-family: 'Walter Turncoat';
+    margin-bottom: 10px;
+  }
+  
+  .contact-info i {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #666;
+  }
+  
+  .contact-info a {
+    font-family: 'Walter Turncoat';
+    text-decoration: none;
+    color: #337ab7;
+  }
+  
+  .contact-info a:hover {
+    color: #23527c;
+  }
+  
+  .map {
+    margin-top: 20px;
+  }
+  
+  .map iframe {
+    border: 0;
+    width: 100%;
+    height: 300px;
+  }
+
+  .shop .social-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .shop .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .shop .social-icon {
+    margin: 10px;
+    font-size: 24px;
+    color: #666;
+    transition: color 0.2s ease;
+  }
+  
+  .shop .social-icon:hover {
+    color: #8d2a4b;
+  }
+  
+  .shop .social-icon i {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+  /* Footer */
+
+  footer{
+    background: white;
+  }
+
+  footer img{
+    width: 150px;
+  }
+
+  footer .container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+  }
+
+  footer ul{
+    display: flex;
+    position: relative;
+    gap: 20px;
+    text-align: center;
+    bottom: -30px;
+  }
+
+  footer ul li{
+    list-style: none;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  footer ul li a{
+    text-decoration: none;
+    color: #444444;
+    font-family: 'Bad Script';
+    transition: all 0.5s ease;
+  }
+
+  footer ul li a:hover{
+    color: #a06d00;
+  }
+  
